@@ -1,32 +1,20 @@
 #include "master.h"
-#include <iostream>
+#include <fstream>
 
 
-Master::Master(int* Data, unsigned int DataSize, int N)
+Master::Master(std::string FileName)
 {
-  this->Data=Data;
-  this->DataSize=DataSize;
-  this->N=N;
   ThreadInit();
+  SyncBlock.MasterBarier();
+  ReadFile(FileName);
+  SyncBlock.Barier(0);
   Synchronize();
 }
 
 void Master::ThreadInit()
 {
-  Thread1 = new std::thread(&Master::Run, this, Data, DataSize / 2, 1);
-  Thread1 = new std::thread(&Master::Run, this, Data + (DataSize) / 2, DataSize % 2 ? DataSize / 2 + 1 : DataSize / 2 , 2);
-}
-
-void Master::Run(int* HalfData, int HalfDataSize, int ThreadID)
-{
-  for (int i = 1; i <= N; i++)
-  {
-    for (int j = 0; j < HalfDataSize; j++)
-    {
-      *(HalfData + j)*=i;
-    }
-    SyncBlock.Barier(ThreadID);
-  }
+  Thread1 = new std::thread(&Master::Run, this, 1);
+  Thread1 = new std::thread(&Master::Run, this, 2);
 }
 
 void Master::Print()
@@ -49,11 +37,23 @@ void Master::Synchronize()
   }
 }
 
-Master::~Master(){
+Master::~Master()
+{
     if(Thread1->joinable()){
         Thread1->join();
     }
     if(Thread2->joinable()){
         Thread2->join();
     }
+}
+
+void Master::ReadFile(std::string FileName)
+{
+  std::ifstream in(FileName);
+  in>>DataSize>>N;
+  cudaHostAlloc((void**)&Data,DataSize*sizeof(int),cudaHostAllocMapped);
+  for(unsigned int i=0; i<DataSize; i++)
+  {
+    in>>Data[i];
+  }
 }

@@ -18,7 +18,11 @@ public:
 	 * @param Data массив данных для обработки (ограничение 16ГБ).
 	 * @param DataSize длинна данного массива.
 	 */
-	Master(int* Data, unsigned int DataSize, int N);
+
+	/**
+	 *
+	 */
+	Master(std::string FileName);
 
 	/**
 	 * Деструктор проконтролирует корректное завершение потоков.
@@ -50,11 +54,9 @@ private:
 
 	/**
 	 * Метод выполняющийся потоками. Умножает переданный фрагмент на число.
-	 * @param HalfData Указатель на половину данных для обработки.
-	 * @param HalfDataSize Длинна HalfData.
 	 * @param ThreadID индекс потока.
 	 */
-	void Run(int* HalfData, int HalfDataSize,int ThreadID);
+	void Run(int ThreadID);
 
 	/**
 	 * Вывод массива в поток
@@ -66,6 +68,15 @@ private:
 	 * результатов.
 	 */
 	void Synchronize();
+
+	/**
+	 * Структура читаемого файла:
+	 * Длинна массива
+	 * Максимальный множитель
+	 * Данные
+	 * @param FileName
+	 */
+	void ReadFile(std::string FileName);
 
   /**
 	 * @see Block
