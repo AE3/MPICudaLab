@@ -46,14 +46,3 @@ Master::~Master()
         Thread2->join();
     }
 }
-
-void Master::ReadFile(std::string FileName)
-{
-  std::ifstream in(FileName);
-  in>>DataSize>>N;
-  cudaHostAlloc((void**)&Data,DataSize*sizeof(int),cudaHostAllocMapped);
-  for(unsigned int i=0; i<DataSize; i++)
-  {
-    in>>Data[i];
-  }
-}
