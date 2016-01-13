@@ -1,6 +1,7 @@
 #include "master.h"
 #include <fstream>
 
+#include <thread>
 
 Master::Master(std::string FileName)
 {
@@ -13,8 +14,10 @@ Master::Master(std::string FileName)
 
 void Master::ThreadInit()
 {
-  Thread1 = new std::thread(&Master::Run, this, 1);
-  Thread1 = new std::thread(&Master::Run, this, 2);
+  std::thread* Thread1 = new std::thread(&Master::Run, this, 1);
+  std::thread* Thread2 = new std::thread(&Master::Run, this, 2);
+  Thread1->detach();
+  Thread2->detach();
 }
 
 void Master::Print()
@@ -39,10 +42,5 @@ void Master::Synchronize()
 
 Master::~Master()
 {
-    if(Thread1->joinable()){
-        Thread1->join();
-    }
-    if(Thread2->joinable()){
-        Thread2->join();
-    }
+
 }
