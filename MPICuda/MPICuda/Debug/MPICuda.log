@@ -1,0 +1,30 @@
+﻿Build started 13.01.2016 12:21:13.
+     1>Project "C:\Users\inovitskas\Documents\GitHub\MPICudaLab\MPICuda\MPICuda\MPICuda.vcxproj" on node 2 (Build target(s)).
+     1>AddCudaCompileDeps:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /DWIN32 /D_DEBUG /D_CONSOLE /D_MBCS /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" /I. /FIcuda_runtime.h /c C:\Users\inovitskas\Documents\GitHub\MPICudaLab\MPICuda\MPICuda\master.cu 
+       CudaBuild:
+         Compiling CUDA source file master.cu...
+         cmd.exe /C "C:\Users\inovitskas\AppData\Local\Temp\tmpd8af817f871c4390b7f27a3bfb502cdf.cmd"
+         "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2013 -ccbin "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include"  -G   --keep-dir Debug -maxrregcount=0  --machine 32 --compile -cudart static  -g   -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd  " -o Debug\master.cu.obj "C:\Users\inovitskas\Documents\GitHub\MPICudaLab\MPICuda\MPICuda\master.cu"
+         
+         C:\Users\inovitskas\Documents\GitHub\MPICudaLab\MPICuda\MPICuda>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2013 -ccbin "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include"  -G   --keep-dir Debug -maxrregcount=0  --machine 32 --compile -cudart static  -g   -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd  " -o Debug\master.cu.obj "C:\Users\inovitskas\Documents\GitHub\MPICudaLab\MPICuda\MPICuda\master.cu" 
+         master.cu
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\inovitskas\Documents\GitHub\MPICudaLab\MPICuda\Debug\MPICuda.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\lib\Win32" cudart.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\inovitskas\Documents\GitHub\MPICudaLab\MPICuda\Debug\MPICuda.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\inovitskas\Documents\GitHub\MPICudaLab\MPICuda\Debug\MPICuda.lib" /MACHINE:X86 Debug\master.cu.obj
+         Debug\block.obj
+         Debug\main.obj
+         Debug\master.obj
+         MPICuda.vcxproj -> C:\Users\inovitskas\Documents\GitHub\MPICudaLab\MPICuda\Debug\MPICuda.exe
+       PostBuildEvent:
+         echo copy "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\cudart*.dll" "C:\Users\inovitskas\Documents\GitHub\MPICudaLab\MPICuda\Debug\"
+         copy "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\cudart*.dll" "C:\Users\inovitskas\Documents\GitHub\MPICudaLab\MPICuda\Debug\"
+         :VCEnd
+         copy "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\cudart*.dll" "C:\Users\inovitskas\Documents\GitHub\MPICudaLab\MPICuda\Debug\"
+         C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\cudart32_70.dll
+         C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\cudart64_70.dll
+         Скопировано файлов:         2.
+     1>Done Building Project "C:\Users\inovitskas\Documents\GitHub\MPICudaLab\MPICuda\MPICuda\MPICuda.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:07.52
