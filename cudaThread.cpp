@@ -41,6 +41,9 @@ void cudaThread::start(int threadID, int N)
 
 void cudaThread::setData(int* Data, unsigned int DataSize)
 {
-    setCudaData(this->Data,Data);
+    std::cout << "Half Data " << Data[0] << std::endl;
+    std::cout << this->Data << std::endl;
+    this->Data = setCudaData(Data);
+    std::cout << this->Data << std::endl;
     this->DataSize = DataSize;
 }

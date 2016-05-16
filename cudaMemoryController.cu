@@ -33,9 +33,8 @@ int* cudaMemoryController::cudaHostAllocMemory(unsigned int DataSize)
         Data = NULL;
         return Data;
     }
-    this->Data = Data;
     this->DataSize = DataSize;
-    std::cout << "return" << std::endl;
+    std::cout << "return Data" << std::endl;
     return Data;
 }
 

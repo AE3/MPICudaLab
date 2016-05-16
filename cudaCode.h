@@ -16,7 +16,7 @@
 
 void cudaSets(int threadID);
 void cudaRun(int* Data, unsigned int DataSize,int i);
-void setCudaData(int* Data, int* CData);
+int* setCudaData(int* CData);
 
 #endif /* CUDACODE_H */
 

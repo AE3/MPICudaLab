@@ -32,13 +32,18 @@ __host__ void cudaRun(int* Data, unsigned int DataSize,int i)
     dim3 gridDim((DataSize + blockDim.x - 1) / blockDim.x);
     std::cout<<"start count"<<std::endl;
     Counting <<<blockDim, gridDim>>> (Data, DataSize, i);
-    out<<std::endl;
     cudaDeviceSynchronize();
 }
 
 
 
-__host__ void setCudaData(int* Data, int* CData)
+__host__ int* setCudaData(int* CData)
 {
-    cudaHostGetDevicePointer(&Data, CData,0);
+    int* Data;
+    if(cudaSuccess != cudaHostGetDevicePointer(&Data, CData,0))
+    {
+        std::cout<<"cudaHostGetDevicePointer error"<<std::endl;
+    }
+    std::cout<< Data << " " << CData[0] <<std::endl;
+    return Data;
 }

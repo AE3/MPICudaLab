@@ -17,7 +17,7 @@
 
 master::master() {
     FileName = "input";
-    numberGPU = 1;
+    numberGPU = 2;
     N = 5;
     std::cout << "Master constructor " << FileName << numberGPU << N << std::endl;
 }
